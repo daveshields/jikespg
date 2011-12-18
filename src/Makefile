@@ -6,12 +6,12 @@ all: jikespg
 jikespg: ctabs.o globals.o lpgparse.o lpgutil.o main.o \
      mkfirst.o mkred.o mkstates.o partset.o prntstat.o produce.o \
      ptables.o remsp.o resolve.o spacetab.o tabutil.o timetab.o
-	$(CC) -s -o jikespg ctabs.o globals.o lpgparse.o lpgutil.o main.o \
+	$(CC) -o jikespg ctabs.o globals.o lpgparse.o lpgutil.o main.o \
 	    mkfirst.o mkred.o mkstates.o partset.o prntstat.o produce.o \
 	    ptables.o remsp.o resolve.o spacetab.o tabutil.o timetab.o
 
 lpgact.i: jikespg.g
-	  lpg jikespg
+	  jikespg jikespg
 	  rm jikespg.l
 	  make
 	  rm CRASH_THE_INITIAL_MAKE_COMMAND_TO_BREAK_OUT
@@ -69,21 +69,21 @@ ctabs.o: ctabs.c common.h space.h
 	$(CC) -c ctabs.c
 
 clean:
-	rm jikespg
-	rm ctabs.o 
-	rm globals.o
-	rm lpgparse.o 
-	rm lpgutil.o 
-	rm main.o 
-	rm mkfirst.o 
-	rm mkred.o
-	rm mkstates.o 
-	rm partset.o 
-	rm prntstat.o 
-	rm produce.o 
-	rm ptables.o 
-	rm remsp.o
-	rm resolve.o
-	rm spacetab.o 
-	rm tabutil.o
-	rm timetab.o
+	rm -f jikespg
+	rm -f ctabs.o 
+	rm -f globals.o
+	rm -f lpgparse.o 
+	rm -f lpgutil.o 
+	rm -f main.o 
+	rm -f mkfirst.o 
+	rm -f mkred.o
+	rm -f mkstates.o 
+	rm -f partset.o 
+	rm -f prntstat.o 
+	rm -f produce.o 
+	rm -f ptables.o 
+	rm -f remsp.o
+	rm -f resolve.o
+	rm -f spacetab.o 
+	rm -f tabutil.o
+	rm -f timetab.o
