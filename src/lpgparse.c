@@ -392,7 +392,8 @@ static void options(void)
 
     while (parm[i] != '\0')     /* Repeat until parm line is exhausted */
     {
-        strcpy(parm, parm + i);       /* Remove garbage in front */
+        /* Remove garbage in front */
+        memmove(parm, parm + i, strlen (parm + i) + 1);
 
         i = 0;
 
@@ -442,7 +443,8 @@ static void options(void)
             {                                  /* prefix?         */
                 flag = FALSE;
                 len = len-2;
-                strcpy(token, token + 2);  /* get rid of "NO" prefix */
+                /* get rid of "NO" prefix */
+                memmove(token, token + 2, strlen(token + 2) + 1);
             }
             else
                 flag = TRUE;
@@ -3401,7 +3403,8 @@ static void display_input(void)
                 strncat(line, temp, PRINT_LINE_SIZE - 12);
                 fprintf(syslis, "\n%s", line);
                 ENDPAGE_CHECK;
-                strcpy(temp, temp + (PRINT_LINE_SIZE - 12));
+                memmove(temp, temp + (PRINT_LINE_SIZE - 12),
+                        sizeof(temp) - (PRINT_LINE_SIZE - 12));
                 i = PRINT_LINE_SIZE - 12;
                 print_large_token(line, temp, "       ", i);
             }
@@ -3429,7 +3432,8 @@ static void display_input(void)
                     strncat(line, temp, PRINT_LINE_SIZE - 12);
                     fprintf(syslis, "\n%s", line);
                     ENDPAGE_CHECK;
-                    strcpy(temp, temp + (PRINT_LINE_SIZE - 12));
+                    memmove(temp, temp + (PRINT_LINE_SIZE - 12),
+                            sizeof(temp) - (PRINT_LINE_SIZE - 12));
                     i = PRINT_LINE_SIZE - 12;
                     print_large_token(line, temp, "       ", i);
                 }

@@ -1632,7 +1632,8 @@ static void print_symbols(void)
             {
                 fwrite(line, sizeof(char), PARSER_LINE_SIZE - 2, syssym);
                 fprintf(syssym, "\\\n");
-                strcpy(line, &line[PARSER_LINE_SIZE - 2]);
+                memmove(line, &line[PARSER_LINE_SIZE - 2],
+                        strlen(&line[PARSER_LINE_SIZE - 2]) + 1);
             }
         }
     }
