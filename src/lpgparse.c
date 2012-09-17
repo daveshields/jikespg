@@ -3378,7 +3378,11 @@ static void display_input(void)
         }
         else
             strcat(line, temp);
-        strcat(line, BLANK);
+
+        if (strlen(line) < PRINT_LINE_SIZE)
+        {
+            strcat(line, BLANK);
+        }
     }
     fprintf(syslis, "\n%s", line);
     ENDPAGE_CHECK;
