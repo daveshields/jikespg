@@ -1,12 +1,3 @@
-// $Id: lpgact.i,v 1.2 1999/11/08 23:22:40 shields Exp $
-//
-// This software is subject to the terms of the IBM Jikes Compiler
-// License Agreement available at the following URL:
-// http://www.ibm.com/research/jikes.
-// Copyright (C) 1996, 1998, International Business Machines Corporation
-// and others.  All Rights Reserved.
-// You must accept the terms of that agreement to use this software.
-//
 #line 65 "jikespg.g"
 #define SYM1 terminal[stack_top + 1]
 #define SYM2 terminal[stack_top + 2]
